@@ -1,4 +1,4 @@
-Nom : {{$nom}}
-Prenom : {{$prenom }}
-Numero de telephone : {{$numTel}}
-Institution : {{$institution}}
+Nom : {{$nom}} <br>
+Prenom : {{$prenom }} <br>
+Numero de telephone : {{$numTel}} <br>
+Institution : {{$institution}} <br>

@@ -11,7 +11,7 @@ class Identite extends Controller
         $nom = "Hamid";
         $prenom = "Sougouma Ali";
         $numTel = "+33774606472";
-        $institution = "universite de Orleans";
+        $institution = "Universite de Orleans";
         return view('identite', compact('nom','prenom','numTel','institution'));
     }
 }
