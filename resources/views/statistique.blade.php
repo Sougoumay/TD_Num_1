@@ -14,27 +14,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 mt-5">
-                    $enreg=0;
-                    $pending=0;
-                    $approved=0;
-                    $disapproved=0;
-                    $conform=0;
-                    @foreach($users as $user)
-                        @if($user->id)
-                            $enreg+=1
-                        @endif
-                        @if($user-status=='pending')
-                            $pending+=1;
-                        @elseif($user->status=='approved')
-                            $approved+=1;
-                        @elseif($user->status=='disapproved')
-                            $disapproved+=1;
-                        @elseif($user->status=='conform')
-                            $conform+=1;
-                        @endif
-                    @endforeach
                     <p>Il existe. $enreg . enregistrement dans cette table</p>
-                    <p>Il existe aussi .$approved+$disapproved+$pending+$conform. enum differente dans cette table</p>
+                    <p>Il existe aussi {{$somme}} enum differente dans cette table</p>
                 </div>
             </div>
         </div>

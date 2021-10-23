@@ -30,13 +30,13 @@
                 @foreach($users as $user)
                     @if($user->status=='conform')
                         <tr>
-                            <th scope="row">$user->id</th>
-                            <td colspan="2">$user->last_name</td>
-                            <td colspan="2">$user->first_name</td>
-                            <td colspan="2">$user->profession</td>
-                            <td colspan="2">$user->PhoneNumber</td>
-                            <td colspan="2">$user->email</td>
-                            <td colspan="2">$user->status</td>
+                            <th scope="row">{{$user->id}}</th>
+                            <td >{{$user->last_name}}</td>
+                            <td >{{$user->first_name}}</td>
+                            <td>{{$user->profession}}</td>
+                            <td >{{$user->PhoneNumber}}</td>
+                            <td >{{$user->email}}</td>
+                            <td >{{$user->status}}</td>
                         </tr>
                     @endif
                 @endforeach

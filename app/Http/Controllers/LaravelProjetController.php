@@ -3,52 +3,73 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\LaravelProjet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class LaravelProjetController extends Controller
 {
+    public function approved(){
+        $users = LaravelProjet::all();
+        $db=DB::table('laravel_projets')->get();
+        return view('approved', compact('users'));
+    }
+
+    public function disapproved(){
+        $users=LaravelProjet::all();
+        $db=DB::table('laravel_projets')->get();
+        return view('disapproved',compact('users'));
+    }
+
+    public function conform(){
+        $users=LaravelProjet::all();
+        $db=DB::table('laravel_projets')->get();
+        return view('conform', compact('users'));
+    }
+
+    public function pending(){
+        $users=LaravelProjet::get();
+        $db=DB::table('laravel_projets')->get();
+        return view('pending', compact('users'));
+    }
+
+    public function resultat(Request $request)
+    {
+        LaravelProjet::create([
+            'last_name' => $request->get('nom'),
+            'first_name' => $request->get('prenom'),
+            'profession' => $request->get('metier'),
+            'PhoneNumber' => $request->get('numero'),
+            'email' => $request->get('mel'),
+            'status' => $request->get('etat')
+        ]);
+    }
     public function form(){
         return view('getform');
     }
 
-    public function approved(){
-        $users=Home::all();
+    public function statistique(){
+        $users=LaravelProjet::all();
         $db=DB::table('laravel_projets')->get();
-        dd($users,$db);
-        return view('approved');
-    }
-
-    public function disapproved(){
-        $users=Home::all();
-        $db=DB::table('laravel_projets')->get();
-        dd($users,$db);
-        return view('disapproved');
-    }
-
-    public function conform(){
-        $users=Home::all();
-        $db=DB::table('laravel_projets')->get();
-        dd($users,$db);
-        return view('conform');
-    }
-
-    public function pending(){
-        $users=Home::all();
-        $db=DB::table('laravel_projets')->get();
-        dd($users,$db);
-        return view('pending');
-    }
-
-    public function resultat(Request $request){
-        Home::create([
-            'last_name'=>$request->get('nom'),
-            'first_name'=>$request->get('prenom'),
-            'profession'=>$request->get('metier'),
-            'PhoneNumber'=>$request->get('numero'),
-            'email'=>$request->get('mel'),
-            'status'=>$request->get('etat')
-        ]);
-        //dd('il est ici');
-    }
+        $enreg=0;
+        $pending=0;
+        $approved=0;
+        $disapproved=0;
+        $conform=0;
+        $somme=0;
+       /* foreach($users as $user)
+            if($user->id)
+                $enreg+=1;
+            if($user->status=='pending')
+                $pending+=1;
+            if($user->status=='approved');
+                $approved+=1;
+            if($user->status=='disapproved');
+                $disapproved+=1;
+            elseif($user->status=='conform')
+                $conform += 1;
+        endforeach
+        $somme=$approved+$disapproved+$pending+$conform; */
+        return view('statistique',compact('users','somme'));
+    }   //dd('il est ici');
 }

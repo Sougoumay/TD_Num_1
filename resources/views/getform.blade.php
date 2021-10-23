@@ -28,9 +28,9 @@
                     <label for="inputAddress2" class="form-label">Profession</label>
                     <input type="text" name="metier" class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label for="inputCity" class="form-label">Phone_Number</label>
-                    <input type="text" name="numero" class="form-control">
+                <div class="col-12">
+                    <label for="inputAddress2" class="form-label">Phone_Number</label>
+                    <input type="number" name="numero" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label for="inputEmail4" class="form-label">Email</label>
