@@ -11,25 +11,21 @@ class LaravelProjetController extends Controller
 {
     public function approved(){
         $users = LaravelProjet::all();
-        $db=DB::table('laravel_projets')->get();
         return view('approved', compact('users'));
     }
 
     public function disapproved(){
         $users=LaravelProjet::all();
-        $db=DB::table('laravel_projets')->get();
         return view('disapproved',compact('users'));
     }
 
     public function conform(){
         $users=LaravelProjet::all();
-        $db=DB::table('laravel_projets')->get();
         return view('conform', compact('users'));
     }
 
     public function pending(){
         $users=LaravelProjet::get();
-        $db=DB::table('laravel_projets')->get();
         return view('pending', compact('users'));
     }
 
@@ -50,7 +46,6 @@ class LaravelProjetController extends Controller
 
     public function statistique(){
         $users=LaravelProjet::all();
-        $db=DB::table('laravel_projets')->get();
         $enreg=0;
         $pending=0;
         $approved=0;

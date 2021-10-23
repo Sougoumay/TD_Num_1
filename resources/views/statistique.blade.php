@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 mt-5">
-                    <p>Il existe. $enreg . enregistrement dans cette table</p>
+                    <p>Il existe {{$enreg}} enregistrement dans cette table</p>
                     <p>Il existe aussi {{$somme}} enum differente dans cette table</p>
                 </div>
             </div>
