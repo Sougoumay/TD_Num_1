@@ -24,21 +24,21 @@
                     <th scope="col">PhoneNumber</th>
                     <th scope="col">Email</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                    @if($user->status=='conform')
-                        <tr>
-                            <th scope="row">{{$user->id}}</th>
-                            <td >{{$user->last_name}}</td>
-                            <td >{{$user->first_name}}</td>
-                            <td>{{$user->profession}}</td>
-                            <td >{{$user->PhoneNumber}}</td>
-                            <td >{{$user->email}}</td>
-                            <td >{{$user->status}}</td>
-                        </tr>
-                    @endif
+                    <tr>
+                        <th scope="row">{{$user->id}}</th>
+                        <td >{{$user->last_name}}</td>
+                        <td >{{$user->first_name}}</td>
+                        <td>{{$user->profession}}</td>
+                        <td >{{$user->PhoneNumber}}</td>
+                        <td >{{$user->email}}</td>
+                        <td >{{$user->status}}</td>
+                        <td ><a href="{{route('laravelProjectShow',$user->id)}}" class="btn btn-primary">Show</a></td><td ><a href="{{route('laravelProjectEdit',$user->id)}}" class="btn btn-warning">Edit</a></td><td ><a href="{{route('laravelProjectDelete',$user->id)}}" onclick="return confirm('Are you sure to delete this data?')" class="btn btn-danger">Delete</a></td>
+                    </tr>
                 @endforeach
 
                 </tbody>

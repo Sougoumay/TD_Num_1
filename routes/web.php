@@ -40,3 +40,11 @@ Route::get('/conform',[LaravelProjetController::class,'conform']);
 Route::get('/pending',[LaravelProjetController::class,'pending']);
 
 Route::get('/statistique',[LaravelProjetController::class,'statistique']);
+
+Route::get('/laravelproject/show/{id}',[LaravelProjetController::class,'laravelProjectShow'])->name('laravelProjectShow')->where(['id'=>'[0-9]+']);
+
+Route::get('/laravelproject/edit/{id}',[LaravelProjetController::class,'laravelProjectEdit'])->name('laravelProjectEdit')->where(['id'=>'[0-9]+']);
+
+Route::get('/laravelproject/delete/{id}',[LaravelProjetController::class,'laravelProjectDelete'])->name('laravelProjectDelete')->where(['id'=>'[0-9]+']);
+
+Route::post('/laravelproject/edited/{id}',[LaravelProjetController::class,'laravelProjectedited'])->name('laravelProjectEdited')->where(['id'=>'[0-9]+']);

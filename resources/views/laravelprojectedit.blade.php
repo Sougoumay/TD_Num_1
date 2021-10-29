@@ -19,35 +19,35 @@
                     <ul>
                         @foreach($errors->all() as $error)
                             <li>{{$error}}</li>
-                            @endforeach
+                        @endforeach
                     </ul>
                 </div>
             @endif
-            <form class="row g-3" action="/contenu" method="post">
+            <form class="row g-3" action="{{route('laravelProjectEdited',$users->id)}}" method="post">
                 @csrf
                 <div class="col-md-12">
                     <label for="inputPassword4" class="form-label">Last_name</label>
-                    <input type="text" name="last_name" class="form-control">
+                    <input type="text" name="last_name" value="{{$users->first_name}}" class="form-control">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress" class="form-label">First_name</label>
-                    <input type="text" name="first_name" class="form-control">
+                    <input type="text" name="first_name" value="{{$users->last_name}}" class="form-control">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label">Profession</label>
-                    <input type="text" name="profession" class="form-control">
+                    <input type="text" name="profession" value="{{$users->profession}}" class="form-control">
                 </div>
                 <div class="col-12">
                     <label for="inputAddress2" class="form-label">Phone_Number</label>
-                    <input type="number" name="PhoneNumber" class="form-control">
+                    <input type="number" name="PhoneNumber" value="{{$users->PhoneNumber}}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control">
+                    <input type="email" name="email" value="{{$users->email}}" class="form-control">
                 </div>
                 <div>
                     <label for="inputZip" class="form-label">Status</label>
-                    <input type="text" name="status" class="form-control">
+                    <input type="text" name="status" value="{{$users->status}}" class="form-control">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Submit</button>
