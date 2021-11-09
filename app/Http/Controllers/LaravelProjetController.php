@@ -84,7 +84,6 @@ class LaravelProjetController extends Controller
             'status' => 'string|required'
         ]);
         $modification = LaravelProjet::find($id)->update($data);
-        dd($modification);
         return back();
     }
 
